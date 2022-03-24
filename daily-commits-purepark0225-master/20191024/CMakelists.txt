@@ -1,0 +1,7 @@
+CMAKE_MINIMUM_REQUIRED ( VERSION 3.10 )
+PROJECT ( "Practice02" )
+
+ADD_COMPILE_OPTIONS( -g -Wall )
+INCLUDE_DIRECTORIES ( . )
+
+ADD_EXECUTABLE ( stack_app stack_app.cpp my_stack.cpp)

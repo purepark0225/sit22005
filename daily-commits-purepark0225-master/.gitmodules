@@ -1,0 +1,3 @@
+[submodule "sit22005-2019"]
+	path = sit22005-2019
+	url = https://github.com/cbchoi/sit22005-2019.git

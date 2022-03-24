@@ -1,0 +1,90 @@
+#include <iostream>
+#include <cstring>
+#include <stdlib.h>
+
+void solution01(char* buff)
+{
+	char buff2[101];
+	int idx = 0;
+
+	for(int i = 0; i < strlen(buff); i++)	// 글자 끝까지 for loop을 통해 해당하는 글자가 아닐 때에만
+	{										// buff2 에 원소로 넣는다
+		if(buff[i] != 'a')
+			if(buff[i] != 'A')
+				if(buff[i] != 'e')
+					if(buff[i] != 'E')
+						if(buff[i] != 'i')
+							if(buff[i] != 'I')
+								if(buff[i] != 'o')
+									if(buff[i] != 'O')
+										if(buff[i] != 'u')
+											if(buff[i] != 'U')
+											{
+												buff2[idx] = buff[i];	// 해당하는 글자가 아닐 시 그 글자를 넣음
+												idx += 1;	// buff2의 그 다음 index로 넘어감
+															// 다음 글자를 넣을 준비
+											}
+
+	}
+	buff2[idx] = '\0';	// 맨 뒤에 string의 마지막을 뜻하는 '\0' 입력해서 끝을 알려줌
+	std::cout << buff2 << std::endl;
+}
+
+void solution02(char* buff)
+{
+	char buff2[101];
+	int idx = 0;
+
+	for(int i = 0; i < strlen(buff); i++)
+	{
+		switch(buff[i])
+		{
+		case 'a':
+		case 'e':
+		case 'i':
+		case 'o':
+		case 'u':
+		case 'A':
+		case 'E':
+		case 'I':
+		case 'O':
+		case 'U':
+			break;
+		default:
+			buff2[idx] = buff[i];
+			idx += 1;
+		}
+	}
+	buff2[idx] = '\0';
+	std::cout << buff2 << std::endl;
+}
+
+void solution03(char* buff)
+{
+	char buff2[101];
+	buff2[0] = '\0';
+	int idx = 0;
+
+	char* token = strtok(buff, "aeiouAEIOU");
+	
+	while(token != NULL)
+	{
+		strcat(buff2, token);
+		token = strtok(NULL, "aeiouAEIOU");
+	}
+	std::cout << buff2 << std::endl;
+}
+
+int main(int argc, char** argv)
+{ 
+	char buff[1000];
+    std::cout << "Enter a string " << std::endl;
+    std::cout << ">>";
+    std::cin >> buff;
+
+    solution01(buff);
+    solution02(buff);
+    solution03(buff);
+
+    return 0;
+}
